@@ -12,26 +12,29 @@ import {
 const statusOptions = ["pending", "cancelled", "completed"];
 
 interface Props {
-  handleSubmit: (todoData: {
-    title: string;
-    description: string;
-    status: string;
-  }, 
-  e: React.FormEvent) => void;
+  handleSubmit: (
+    todoData: {
+      title: string;
+      description: string;
+      status: string;
+    },
+    e: React.FormEvent
+  ) => void;
   initialData?: { title: string; description: string; status: string };
   isEdit?: boolean;
   formData: { title: string; description: string; status: string };
-  setFormData: React.Dispatch<React.SetStateAction<{ title: string; description: string; status: string }>>;
+  setFormData: React.Dispatch<
+    React.SetStateAction<{ title: string; description: string; status: string }>
+  >;
 }
 
 const TodoForm: React.FC<Props> = ({
-    handleSubmit,
+  handleSubmit,
   initialData,
   isEdit = false,
   formData,
-  setFormData
+  setFormData,
 }) => {
-
   useEffect(() => {
     if (initialData) setFormData(initialData);
   }, [initialData]);
@@ -47,7 +50,7 @@ const TodoForm: React.FC<Props> = ({
       </Typography>
       <Box component="form">
         <Grid container spacing={3}>
-          <Grid item xs={12}>
+          <Grid size={12}>
             <TextField
               name="title"
               label="Title"
@@ -58,7 +61,7 @@ const TodoForm: React.FC<Props> = ({
             />
           </Grid>
 
-          <Grid item xs={12}>
+          <Grid size={12}>
             <TextField
               name="description"
               label="Description"
@@ -71,7 +74,7 @@ const TodoForm: React.FC<Props> = ({
             />
           </Grid>
 
-          <Grid item xs={12}>
+          <Grid size={12}>
             <TextField
               select
               name="status"
@@ -88,9 +91,9 @@ const TodoForm: React.FC<Props> = ({
             </TextField>
           </Grid>
 
-          <Grid item xs={12}>
+          <Grid size={12}>
             <Button
-                onClick={(e) => handleSubmit(formData, e)}
+              onClick={(e) => handleSubmit(formData, e)}
               type="submit"
               variant="contained"
               color="primary"
