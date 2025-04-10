@@ -15,7 +15,7 @@ const PaginationComponent: React.FC<Props> = ({ page, count, onChange, limit, on
       <Pagination
         count={count}
         page={page}
-        onChange={(_, page) => onChange(page)}
+        onChange={(_e, page) => onChange(page)}
         color="primary"
         sx={{
           backgroundColor: "#fff",
